@@ -1,8 +1,8 @@
-import { usePriceCount } from "../stores/store";
+import { usePriceStore } from "../stores/store";
 export function PriceCounter() {
-  const price = usePriceCount((state) => state.price)
-  const increasePopulation = usePriceCount((state) => state.increasePopulation)
-  const removeAllBears = usePriceCount((state) => state.removeAllBears)
+  const price = usePriceStore((state) => state.price)
+  const increasePopulation = usePriceStore((state) => state.increasePopulation)
+  const removeAllBears = usePriceStore((state) => state.removeAllBears)
   return (
     <div className="box">
       <h1>{price} around here...</h1>

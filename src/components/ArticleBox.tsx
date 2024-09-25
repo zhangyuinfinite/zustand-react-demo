@@ -3,12 +3,15 @@ import {useState, useEffect} from 'react';
 export const ArticleNumber = () => {
   const total = useArticleStore((state) => state.total);
   const addOneArticles = useArticleStore((state) => state.addOneArticles);
+  const changeType = useArticleStore((state) => state.changeType);
   return (
     <div className="box">
       <p>文章数量: {total}</p>
       <p>{Math.random()}</p>
       <div>
         <button onClick={addOneArticles}>add Article</button>
+        <button onClick={changeType}>change Type</button>
+
       </div>
     </div>
   );
@@ -36,6 +39,7 @@ export const ArticleBox = () => {
   // useEffect(() => {
   //   const unsub = useArticleStore.subscribe(
   //     (state, oldState) => {
+  //       console.log('状态变化：', state);
   //       if (state.total > 7 && oldState.total <= 7) {
   //         setBgColor("lightgreen");
   //       } else if (oldState.total > 7 && state.total <= 7) {
@@ -64,6 +68,7 @@ export const ArticleBox = () => {
     const unsub = useArticleStore.subscribe(
       state => state.total,
       (total, oldTotal) => {
+        console.log('状态变化:', total, oldTotal, '---')
         if (total > 7 && oldTotal <= 7) {
           setBgColor("lightgreen");
         } else if (oldTotal > 7 && total <= 7) {

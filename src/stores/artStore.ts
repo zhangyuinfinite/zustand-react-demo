@@ -3,7 +3,9 @@ import { subscribeWithSelector } from "zustand/middleware";
 
 interface ArticleState {
   total: number;
-  addOneArticles: () => void
+  type: string;
+  addOneArticles: () => void;
+  changeType: () => void;
 };
 
 // 不使用subscribeWithSelector 
@@ -19,8 +21,12 @@ interface ArticleState {
 export const useArticleStore = create<ArticleState>()(
   subscribeWithSelector((set) => ({
     total: 0,
+    type: "article",
     addOneArticles: () => {
       set(state => ({total: state.total + 1}))
+    },
+    changeType: () => {
+      set(state => ({type: "article" + Math.random()}))
     }
   }))
 );

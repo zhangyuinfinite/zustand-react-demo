@@ -6,6 +6,7 @@ type BaseBearStoreState = {
   size: string;
   increasePopulation: () => void;
   removeAllBears: () => void;
+  changeSize: (size: string) => void;
 };
 
 export const useBaseBearStore = create<BaseBearStoreState>()(
@@ -18,5 +19,9 @@ export const useBaseBearStore = create<BaseBearStoreState>()(
         bears: state.bears + 1,
       })),
     removeAllBears: () => set({ bears: 0 }),
+    changeSize: (size: string) => {
+      console.log("change size: ", size)
+      set({ size })
+    },
   })
 );

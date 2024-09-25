@@ -8,6 +8,8 @@ import {BearNames } from "./components/BearNames";
 import { PriceCounter } from "./components/PriceBox";
 import { ArticleBox } from "./components/ArticleBox";
 import { UserBox } from "./components/UserBox";
+import { formatPrice } from "./utils/formatPrice";
+formatPrice();
 function App() {
   return (
     <div className="container">
@@ -17,47 +19,39 @@ function App() {
         <BaseBearBox />
       </div>
       <br />
-      {/* ================================================================================================== */}
+      {/* useShallow的例子 */}
       <div>
-        {/* 中间件使用 */}
-        <CatBox />
+        <BearNames />
       </div>
       <br />
-      {/* ================================================================================================== */}
-
       <div>
         <BearBox />
         <FoodBox />
         <br />
       </div>
-      {/* ================================================================================================== */}
-      <br />
-      <div>
-        <BearNames />
-        <br />
-      </div>
-
-      <div>
-        <CatBox2 />
-        <CatController />
-      </div>
-      <div>
-        <PriceCounter />
-      </div>
-      <br />
-      {/* ================================================================================================== */}
       {/* subscribe 示例 */}
       <div>
         <ArticleBox />
       </div>
       <br />
-
+      <div>
+        <PriceCounter />
+      </div>
+      <br />
       {/* ================================================================================================== */}
       {/* 结合 context 使用 示例 */}
       <div>
         <UserBox />
       </div>
-
+      <div>
+        {/* 中间件使用 */}
+        <CatBox />
+      </div>
+      <br />
+      <div>
+        <CatBox2 />
+        <CatController />
+      </div>
     </div>
   );
 }
